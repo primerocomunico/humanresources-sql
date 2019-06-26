@@ -12,6 +12,8 @@ var app = express();
 //MIDDLEWARE
 app.use(cors_middleware());
 app.use(body_parser.json());
+// sirve para crear un servidor estático 
+app.use(express.static('../frontend'));
 
 var allowCrossDomain = function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -114,5 +116,5 @@ app.delete('/delete/:id', (req, res) => {
 
 //LISTEN
 console.log('Escuchando en puerto 3000');
-app.listen(3000);
+app.listen(80);
 //
